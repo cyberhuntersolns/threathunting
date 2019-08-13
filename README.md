@@ -1,6 +1,5 @@
 ﻿# Sysmon Threat Intelligence Configuration #
 
-
 ## Use ##
 
 ### Auto-Install with Auto Update Script:###
@@ -16,7 +15,3 @@ Restore:
 sc sdset Sysmon D:(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWLOCRRC;;;IU)(A;;CCLCSWLOCRRC;;;SU)S:(AU;FA;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;WD)
 
 ~~~~
-
-### Graylog Configuration ###
-
-(https://github.com/ion-storm/Graylog_Sysmon)
