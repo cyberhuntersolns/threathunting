@@ -5,6 +5,7 @@
 ### Auto-Install with Auto Update Script:###
 ~~~~
 As admin user from the CMD: Install-Sysmon.bat
+Ensure to update rules in the https://raw.githubusercontent.com/cyberhuntersolns/sysmon-config/develop/sysmonconfig-export.xml file as it is the master.
 ~~~~
 ### Install Win Log Beat to Ship Event Logs:###
 ~~~~
