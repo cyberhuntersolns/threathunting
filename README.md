@@ -4,7 +4,7 @@
 
 ### Auto-Install with Auto Update Script:###
 ~~~~
-Install Sysmon.bat
+As admin user from the CMD: Install-Sysmon.bat
 ~~~~
 
 ## Hide Sysmon from services.msc ##
