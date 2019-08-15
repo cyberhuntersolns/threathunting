@@ -1,0 +1,30 @@
+winlogbeat.event_logs:
+  - name: Microsoft-Windows-Sysmon/Operational
+    processors:
+      - script:
+          lang: javascript
+          id: sysmon
+          file: ${path.home}/module/sysmon/config/winlogbeat-sysmon.js
+
+fields:
+  logzio_codec: json
+  token: avufEASyzqMhWhJAhfjIGLpZMlKVlMNy
+  type: wineventlog
+fields_under_root: true
+#The following processors are to ensure compatibility with version 7
+processors:
+- rename:
+    fields:
+     - from: "agent"
+       to: "beat_agent"
+    ignore_missing: true
+- rename:
+    fields:
+     - from: "log.file.path"
+       to: "source"
+    ignore_missing: true
+    
+output.logstash:
+  hosts: ["listener.logz.io:5015"]
+  ssl:
+    certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
