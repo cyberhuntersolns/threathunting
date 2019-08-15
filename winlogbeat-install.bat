@@ -15,10 +15,11 @@ set tasktime=%hour%:%minute%
 pushd "C:\Program Files\"
 echo [+] Downloading Winlogbeat...
 @powershell (new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/cyberhuntersolns/threathunting/develop/winlogbeat.zip','C:\Program Files\winlogbeat.zip')"
-@powershell Expand-Archive -Force 'C:\Program Files\winlogbeat.zip' 'C:\Program Files'"
-pushd "C:\Program Files\winlogbeat2"
-sysmon64.exe -accepteula -i sysmonconfig-export.xml
-sc failure Sysmon64 actions= restart/10000/restart/10000// reset= 120
-echo [+] Sysmon Successfully Installed!
+@powershell Expand-Archive -Force 'C:\Program Files\winlogbeat.zip' 'C:\Program Files\'"
+rename "C:\Program Files\winlogbeat-7.3.0-windows-x86_64" "C:\Program Files\winlogbeat"
+pushd "C:\Program Files\winlogbeat"
+@powershell (new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/cyberhuntersolns/threathunting/develop/winlogbeat.yml','C:\Program Files\winlogbeat\winlogbeat.yml')"
+@powershell 
+echo [+] Winlogbeat Successfully Installed!
 timeout /t 10
 exit
