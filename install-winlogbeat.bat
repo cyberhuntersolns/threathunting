@@ -20,7 +20,7 @@ rename winlogbeat-7.3.0-windows-x86_64 winlogbeat
 pushd "C:\Program Files\winlogbeat"
 @powershell (new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/cyberhuntersolns/threathunting/develop/winlogbeat.yml','C:\Program Files\winlogbeat\winlogbeat.yml')"
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""c:\Program Files\winlogbeat\install-service-winlogbeat.ps1""' -Verb RunAs}"
-@powershell 'Restart-Service winlogbeat'"
+@powershell -Command "& {Restart-Service winlogbeat}"
 echo [+] Winlogbeat Successfully Installed!
 timeout /t 10
 exit
