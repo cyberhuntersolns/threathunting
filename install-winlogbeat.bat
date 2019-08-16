@@ -16,7 +16,7 @@ echo [+] Downloading Winlogbeat...
 @powershell (new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/cyberhuntersolns/threathunting/develop/winlogbeat.zip','C:\Program Files\winlogbeat.zip')"
 @powershell Expand-Archive -Force 'C:\Program Files\winlogbeat.zip' 'C:\Program Files\'"
 pushd "C:\Program Files\"
-rename winlogbeat-7.3.0-windows-x86_64 winlogbeat
+rename winlogbeat-6.5.4-windows-x86_64 winlogbeat
 pushd "C:\Program Files\winlogbeat"
 @powershell (new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/cyberhuntersolns/threathunting/develop/winlogbeat.yml','C:\Program Files\winlogbeat\winlogbeat.yml')"
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""c:\Program Files\winlogbeat\install-service-winlogbeat.ps1""' -Verb RunAs}"
