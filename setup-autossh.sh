@@ -1,0 +1,44 @@
+#!/bin/bash
+
+if [[ $(whoami) != 'root' ]]; then
+  echo "Run as root please, e.g. sudo bash $0"
+  exit 1
+fi
+
+HOME=/root
+
+mkdir $HOME/.ssh 2>/dev/null
+
+# adding `fwd1` user private key
+echo -e "-----BEGIN OPENSSH PRIVATE KEY-----\n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\n-----END OPENSSH PRIVATE KEY-----\n" > $HOME/.ssh/cyberhunter-fwd1
+
+## Adding the public key to the authorized_keys ##
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCmsM64Z3wX1hdT5nf1J9RjAB1nJdMRikZ1m7sRAhl02Xo3P1qOPN9dE5oIe1bwTgF4PBaWdbtBENvyl8tC/wtMHjmg6OKS4bQZXJBx/D2bCVfYL/lVMt6YHJ1gB4zWqFGsefj3rd9P4nOf8ceM1BgRL4ixqJ+n3lhVAkTQGhWydE0zaOfzgCC3m+nC7vIEWPPC0Ek17W1HucTwqBAoScdycrj/fruVz7V3Yit2k5eE7oddFKSpTuxjCKrehgUFsIEDkD+wOi/O34m7XhZgParulVbp5MeVSNYoEAzRYxPwRybQlPyLozomI5zXPNb6lZmdXCkGSPHoF5qUjrJLnZuwpAcys6SHH1DRuQ6KOtus3dqd7usTxO2ZTqddfpNyOT1zB337Aw9dDP6k4XGHp3gBJNcTpZoiGCfL5d2QsgYIJ0OddHUZETVCATNp5fvHLCcj+nfUyoFVEwDNZjaGTf1wxvnPHsb6mOfnrNlUJ3gHR+H3d4xVAi3Zl4MqMgrnjqc9H5Etk/Y4JLVv/xJM5tmw1cWjsBr8DEZUY3I3AFYbWzbPKn9vi8CFP/vvNIaNx/JwKnPoUQ2SetWq6uVJkHCLChIwZnCpCLKMuYnyJ68IWBBdEZjttxsC/qJAtZQ1LAH/7q0gse+LgzuiZeXuxHFh5ZbmGj/sp6oLFIrGHlLBbQ==" > $HOME/.ssh/authorized_keys
+
+# adding jumphost fingerprint to known hosts
+ssh-keyscan -H 159.89.117.214 >> $HOME/.ssh/known_hosts
+
+chmod 700 $HOME/.ssh
+chmod 600 $HOME/.ssh/cyberhunter-fwd1
+chmod 644 $HOME/.ssh/authorized_keys $HOME/.ssh/known_hosts
+
+## install autossh ##
+apt-get update
+apt-get install autossh -y
+
+## this creates service creating tunnel that should be running even after restart ##
+cat << EOF > /etc/systemd/system/cyberhunter-ssh-tunnel.service
+[Unit]
+Description=AutoSSH tunnel to forward localhost:22 to CyberHunter's server
+After=network.target
+[Service]
+Environment='AUTOSSH_GATETIME=0'
+ExecStart=/usr/bin/autossh -o 'ServerAliveInterval 10' -o 'ServerAliveCountMax 3' -i /root/.ssh/cyberhunter-fwd1 -N -R 2222:localhost:22 fwd1@159.89.117.214
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# enable and start new tunnel service
+systemctl daemon-reload
+systemctl start cyberhunter-ssh-tunnel.service
+systemctl enable cyberhunter-ssh-tunnel.service
